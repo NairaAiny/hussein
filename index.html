@@ -1,0 +1,1009 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meat Poa | Good Meat. Good Food.</title>
+
+<style>
+:root {
+  --green: #087b43;
+  --red: #c8202b;
+  --black: #171717;
+  --white: #fff;
+  --grey: #777;
+  --light: #f7f7f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* HEADER */
+
+header {
+  height: 85px;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--green);
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+}
+
+.brand h2 {
+  font-size: 25px;
+  letter-spacing: -1px;
+}
+
+.brand h2 span {
+  color: var(--red);
+}
+
+.brand small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--grey);
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+}
+
+.menu-button span {
+  width: 27px;
+  height: 2px;
+  background: var(--black);
+  transition: .3s;
+}
+
+.menu-button.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu {
+  position: absolute;
+  right: 7%;
+  top: 75px;
+  background: white;
+  width: 220px;
+  box-shadow: 0 10px 30px #00000015;
+  border-radius: 8px;
+  overflow: hidden;
+  display: none;
+}
+
+.menu.show {
+  display: block;
+}
+
+.menu a {
+  display: block;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.menu a:hover {
+  background: var(--light);
+  color: var(--green);
+}
+
+/* HERO */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+  padding: 55px 8%;
+  min-height: 500px;
+  background: var(--light);
+}
+
+.hero-text {
+  max-width: 480px;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5vw, 61px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  padding: 14px 23px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: .3s;
+}
+
+.button:hover {
+  background: var(--red);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+/* SMALL FLAG LINE */
+
+.flag-line {
+  display: flex;
+  width: 65px;
+  height: 4px;
+  margin: 15px 0;
+}
+
+.flag-line span {
+  flex: 1;
+}
+
+.flag-line span:nth-child(1) {
+  background: var(--black);
+}
+
+.flag-line span:nth-child(2) {
+  background: var(--red);
+}
+
+.flag-line span:nth-child(3) {
+  background: var(--green);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+  padding: 75px 7%;
+}
+
+.section-heading {
+  margin-bottom: 35px;
+}
+
+.section-heading h2 {
+  font-size: 32px;
+  letter-spacing: -1px;
+}
+
+.section-heading p {
+  color: var(--grey);
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* MEAT PRODUCTS */
+
+.products {
+  background: white;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  transition: .3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #00000012;
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 16px;
+}
+
+.product-info h3 {
+  font-size: 17px;
+  margin-bottom: 7px;
+}
+
+.product-info p {
+  font-size: 13px;
+  color: var(--grey);
+  min-height: 38px;
+  margin-bottom: 15px;
+}
+
+.product-info a {
+  display: block;
+  background: var(--green);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.product-info a:hover {
+  background: var(--red);
+}
+
+/* ABOUT */
+
+.about {
+  background: var(--light);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.about-text h2 {
+  font-size: 35px;
+}
+
+.about-text p {
+  color: #666;
+  line-height: 1.9;
+  font-size: 15px;
+  margin: 15px 0;
+}
+
+/* VIDEOS */
+
+.videos {
+  background: white;
+}
+
+.video-content {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.video-content h3 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.video-content p {
+  color: var(--grey);
+  margin-bottom: 20px;
+}
+
+.video-content video {
+  width: 100%;
+  max-height: 370px;
+  border-radius: 8px;
+  background: black;
+}
+
+/* CONTACT */
+
+.contact {
+  background: var(--light);
+  text-align: center;
+}
+
+.contact .section-heading {
+  margin-bottom: 30px;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.detail p {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #555;
+}
+
+.detail strong {
+  color: var(--black);
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-buttons a {
+  padding: 13px 23px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.whatsapp { background: var(--green); }
+.tiktok { background: #111; }
+.email { background: var(--red); }
+.facebook { background: #1877f2; }
+
+/* FOOTER */
+
+footer {
+  background: var(--black);
+  color: white;
+  padding: 35px 7%;
+  text-align: center;
+}
+
+footer h2 {
+  margin-bottom: 8px;
+}
+
+footer h2 span {
+  color: var(--red);
+}
+
+footer p {
+  color: #bbb;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.footer-stripe {
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--black) 33%,
+    var(--red) 33% 66%,
+    var(--green) 66%
+  );
+}
+
+/* WHATSAPP FLOATING BUTTON */
+
+.float-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--green);
+  color: white;
+  padding: 13px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  z-index: 500;
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    gap: 25px;
+    padding: 45px 6%;
+  }
+
+  .hero-image img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+  .about {
+    gap: 30px;
+  }
+}
+
+@media(max-width: 600px) {
+  header {
+    height: 72px;
+    padding: 0 5%;
+  }
+
+  .brand h2 {
+    font-size: 21px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 6%;
+    gap: 25px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .hero-image img {
+    height: 350px;
+  }
+
+  section {
+    padding: 50px 5%;
+  }
+
+  .section-heading h2 {
+    font-size: 27px;
+  }
+
+  .product-grid {
+    gap: 12px;
+  }
+
+  .product-info {
+    padding: 12px;
+  }
+
+  .product-info h3 {
+    font-size: 15px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image img {
+    height: 360px;
+  }
+
+  .video-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-details {
+    gap: 25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="footer-stripe"></div>
+
+<!-- HEADER -->
+
+<header>
+
+  <a href="#home" class="brand">
+    <div class="logo">👍</div>
+    <div>
+      <h2>Meat <span>Poa</span></h2>
+      <small>GOOD MEAT. GOOD FOOD.</small>
+    </div>
+  </a>
+
+  <button class="menu-button" id="menuButton"
+          aria-label="Open navigation menu"
+          aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="menu" id="menu">
+    <a href="#home">Home</a>
+    <a href="#meat">Our Meat</a>
+    <a href="#about">About Us</a>
+    <a href="#videos">Videos</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+
+</header>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+  <div class="hero-text">
+
+    <div class="eyebrow">Welcome to Meat Poa</div>
+
+    <h1>
+      Good Meat.<br>
+      Good Food.<br>
+      <span>Meat Poa!</span>
+    </h1>
+
+    <div class="flag-line">
+      <span></span><span></span><span></span>
+    </div>
+
+    <p>
+      Quality goat meat and mutton for your delicious meals.
+      Fresh choices, friendly service and convenience
+      all in one place.
+    </p>
+
+    <a class="button"
+       href="https://wa.me/254745278428"
+       target="_blank">
+       Order on WhatsApp →
+    </a>
+
+  </div>
+
+  <div class="hero-image">
+    <img src="images/home.jpeg" alt="Meat Poa quality meat">
+  </div>
+
+</section>
+
+<!-- OUR MEAT -->
+
+<section class="products" id="meat">
+
+  <div class="section-heading">
+    <h2>Our Meat Selection</h2>
+    <div class="flag-line">
+      <span></span><span></span><span></span>
+    </div>
+    <p>Choose what you need. We'll take care of the rest.</p>
+  </div>
+
+  <div class="product-grid">
+
+
+    <div class="product-card">
+      <img src="images/whole.jpeg" alt="Whole meat">
+      <div class="product-info">
+        <h3>Whole Meat</h3>
+        <p>For family gatherings and special occasions.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Whole%20Meat." target="_blank">Ask for prices</a>
+      </div>
+       </div>
+   
+
+    <div class="product-card">
+      <img src="images/haunch.jpeg" alt="Haunch">
+      <div class="product-info">
+        <h3>Haunch</h3>
+        <p>A great choice for your favourite recipes.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Haunch." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+ <div class="product-card">
+      <img src="images/rib.jpeg" alt="Ribs">
+      <div class="product-info">
+        <h3>Ribs</h3>
+        <p>Perfect for tasty and flavourful meals.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Ribs." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+    
+   
+
+    <div class="product-card">
+      <img src="images/forelimb.jpeg" alt="Foreleg">
+      <div class="product-info">
+        <h3>Foreleg</h3>
+        <p>Good for hearty and traditional meals.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Foreleg." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/neck.jpeg" alt="Neck">
+      <div class="product-info">
+        <h3>Neck</h3>
+        <p>Full of flavour for delicious soups and stews.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Neck." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/IMG_20260302_073450_490.jpg" alt="Live goat">
+      <div class="product-info">
+        <h3>Live Goat</h3>
+        <p>Ask us about availability and prices.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20a%20Live%20Goat." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/sheep.jpeg" alt="Live sheep">
+      <div class="product-info">
+        <h3>Live Mutton</h3>
+        <p>Ask us about availability and prices.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Live%20Mutton." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <div class="about-image">
+    <img src="images/home.jpeg" alt="Meat Poa owner">
+  </div>
+
+  <div class="about-text">
+
+    <div class="eyebrow">Get to know us</div>
+
+    <h2>About Meat Poa</h2>
+
+    <div class="flag-line">
+      <span></span><span></span><span></span>
+    </div>
+
+    <p>
+      Meat Poa is a Nairobi-based meat business dedicated
+      to providing quality goat meat and mutton.
+    </p>
+
+    <p>
+      We believe good food starts with good meat.
+      Our aim is to make your meat shopping experience
+      simple, convenient and enjoyable.
+    </p>
+
+    <p>
+      Whether you prefer collection or delivery,
+      we are happy to serve you!
+    </p>
+
+  </div>
+
+</section> 
+
+<!--photo gallery-->
+
+<div class="product-grid">
+   <div class="product-card">
+      <img src="images/w2.jpeg" alt="Whole meat">
+      <div class="product-info">
+        <h3>Whole Meat</h3>
+        <p>For family gatherings and special occasions.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Whole%20Meat." target="_blank">Ask for prices</a>
+      </div>
+       </div>
+   
+
+    <div class="product-card">
+      <img src="images/h2.jpeg" alt="Haunch">
+      <div class="product-info">
+        <h3>Haunch</h3>
+        <p>A great choice for your favourite recipes.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Haunch." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+ <div class="product-card">
+      <img src="images/r2.jpeg" alt="Ribs">
+      <div class="product-info">
+        <h3>Ribs</h3>
+        <p>Perfect for tasty and flavourful meals.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Ribs." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+    
+   
+
+    <div class="product-card">
+      <img src="images/f2.jpeg" alt="Foreleg">
+      <div class="product-info">
+        <h3>Foreleg</h3>
+        <p>Good for hearty and traditional meals.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Foreleg." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/n2.jpeg" alt="Neck">
+      <div class="product-info">
+        <h3>Neck</h3>
+        <p>Full of flavour for delicious soups and stews.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Neck." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/WhatsApp Image 2026-11-02 at 10.37.01.jpeg" alt="Live goat">
+      <div class="product-info">
+        <h3>Live Goat</h3>
+        <p>Ask us about availability and prices.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20a%20Live%20Goat." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/sheep.jpeg" alt="Live sheep">
+      <div class="product-info">
+        <h3>Live Mutton</h3>
+        <p>Ask us about availability and prices.</p>
+        <a href="https://wa.me/254745278428?text=Hello%20Meat%20Poa%2C%20I%20am%20interested%20in%20Live%20Mutton." target="_blank">Ask for prices</a>
+      </div>
+    </div>
+  
+</div>
+
+<!-- VIDEOS -->
+
+<section class="videos" id="videos">
+
+  <div class="section-heading">
+    <h2>From Meat Poa</h2>
+    <div class="flag-line">
+      <span></span><span></span><span></span>
+    </div>
+    <p>See what's happening at Meat Poa.</p>
+  </div>
+
+  <div class="video-content">
+
+    <div>
+      <h3>See. Choose. Order.</h3>
+      <p>
+        Take a look at our products and get in touch
+        whenever you're ready to order.
+      </p>
+
+      <a class="button"
+         href="https://www.tiktok.com/@modestymeatpoa"
+         target="_blank">
+         Visit our TikTok →
+      </a>
+    </div>
+
+    <video controls poster="images/home.jpg">
+      <source src="video/hussen.mp4" type="video/mp4">
+      Your browser does not support this video.
+    </video>
+
+     <video controls poster="images/home.jpg">
+      <source src="video/WhatsApp Video 2026-10-28 at 8.20.47 PM.mp4" type="video/mp4">
+      Your browser does not support this video.
+    </video>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <div class="section-heading">
+    <h2>Talk to Us!</h2>
+    <div class="flag-line" style="margin:15px auto">
+      <span></span><span></span><span></span>
+    </div>
+    <p>Ready to order? We're just a message away.</p>
+  </div>
+
+  <div class="contact-details">
+
+    <div class="detail">
+      <strong>Location</strong>
+      <p>Nairobi, Kenya</p>
+    </div>
+
+    <div class="detail">
+      <strong>Phone</strong>
+      <p>0745278428</p>
+    </div>
+
+    <div class="detail">
+      <strong>Pricing</strong>
+      <p>Ask us for prices</p>
+    </div>
+
+    <div class="detail">
+      <strong>Delivery</strong>
+      <p>Delivery or collection</p>
+    </div>
+
+  </div>
+
+  <div class="contact-buttons">
+
+    <a class="whatsapp"
+       href="https://wa.me/254745278428"
+       target="_blank">
+       WhatsApp
+    </a>
+
+    <a class="tiktok"
+       href="https://www.tiktok.com/@modestymeatpoa"
+       target="_blank">
+       TikTok
+    </a>
+
+    <a class="email"
+       href="mailto:jamalhussein.304@gmail.com">
+       Email Us
+    </a>
+
+    <a class="facebook"
+       href="https://www.facebook.com/me/"
+       target="_blank">
+       Facebook
+    </a>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h2>Meat <span>Poa</span></h2>
+
+  <p>Good Meat. Good Food. Meat Poa!</p>
+
+  <p>© 2026 Meat Poa. All Rights Reserved.</p>
+
+</footer>
+
+<div class="footer-stripe"></div>
+
+<a href="https://wa.me/254745278428"
+   target="_blank"
+   class="float-whatsapp">
+   WhatsApp Us
+</a>
+
+<!-- HAMBURGER JAVASCRIPT -->
+
+<script>
+
+const menuButton = document.getElementById("menuButton");
+const menu = document.getElementById("menu");
+
+menuButton.addEventListener("click", function() {
+
+  menu.classList.toggle("show");
+  menuButton.classList.toggle("active");
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    menu.classList.contains("show")
+  );
+
+});
+
+document.querySelectorAll(".menu a").forEach(function(link) {
+
+  link.addEventListener("click", function() {
+
+    menu.classList.remove("show");
+    menuButton.classList.remove("active");
+    menuButton.setAttribute("aria-expanded", "false");
+
+  });
+
+});
+
+document.addEventListener("click", function(event) {
+
+  if (!menu.contains(event.target) &&
+      !menuButton.contains(event.target)) {
+
+    menu.classList.remove("show");
+    menuButton.classList.remove("active");
+    menuButton.setAttribute("aria-expanded", "false");
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
